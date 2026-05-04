@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard | UX-Ray AI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body class="dashboard-theme">
+    <!-- BACKGROUND GEOMETRIC SHAPES -->
+    <div class="geometric-shape"></div>
+    <div class="geometric-shape"></div>
+    <div class="geometric-shape"></div>
+
+<!-- ===== NAVBAR ===== -->
+<header class="dashboard-nav">
+    <div class="container dashboard-nav-inner">
+        <h2>UX-Ray AI</h2>
+
+        <div class="nav-actions">
+
+            <div class="points-box">
+                <span id="points-display">Points: 0</span>
+                <span id="level-display">Level: 1</span>
+            </div>
+
+            <!-- LANGUAGE DROPDOWN -->
+            <div class="custom-dropdown" id="lang-dropdown">
+                <div class="dropdown-selected">English</div>
+                <div class="dropdown-options">
+                    <div data-value="en">English</div>
+                    <div data-value="hi">Hindi</div>
+                </div>
+            </div>
+
+            <!-- UPGRADE PLAN -->
+            <a href="/plans" class="upgrade-btn">Upgrade Plan</a>
+
+            <!-- LOGOUT -->
+            <button id="logout-btn">Logout</button>
+
+        </div>
+    </div>
+</header>
+
+
+<!-- ===== MAIN ===== -->
+<section class="dashboard-main container page-transition">
+
+    <!-- ANALYZER -->
+    <div class="analyze-card">
+
+        <h2>🚀 AI <span class="text-gradient">UX Analyzer</span></h2>
+        <p>Get instant UX insights for your website</p>
+
+        <!-- URL -->
+        <input type="text" id="website-url" placeholder="https://yourwebsite.com">
+
+        <!-- AUDIENCE -->
+        <div class="custom-dropdown" id="audience-dropdown">
+            <div class="dropdown-selected">Select Target Audience</div>
+
+            <div class="dropdown-options">
+                <div data-value="Students">Students</div>
+                <div data-value="Developers">Developers</div>
+                <div data-value="Professionals">Professionals</div>
+                <div data-value="Kids">Kids</div>
+            </div>
+        </div>
+
+        <!-- GOAL -->
+        <div class="custom-dropdown" id="goal-dropdown">
+            <div class="dropdown-selected">Select Website Goal</div>
+
+            <div class="dropdown-options">
+                <div data-value="Sell Products">Sell Products</div>
+                <div data-value="Generate Leads">Generate Leads</div>
+                <div data-value="Portfolio">Portfolio</div>
+                <div data-value="Blog">Blog</div>
+            </div>
+        </div>
+
+        <!-- BUTTON -->
+        <button id="analyze-btn">Analyze with AI</button>
+
+        <!-- LOADER -->
+        <div id="ai-loader" class="ai-loader">
+            🤖 Analyzing UX... Please wait...
+        </div>
+
+    </div>
+
+
+    <!-- ===== RESULTS ===== -->
+    <div id="results-section" class="results-section">
+
+        <!-- SCORES -->
+        <div class="score-grid">
+
+            <div class="score-card">
+                <div class="card-icon-box icon-purple"><i class="fa-solid fa-chart-line"></i></div>
+                <p class="stat-value" id="ux-score">0</p>
+                <span class="stat-label">UX Score</span>
+                <span class="stat-sub text-purple">+0 this scan</span>
+            </div>
+
+            <div class="score-card">
+                <div class="card-icon-box icon-pink"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                <p class="stat-value" id="conversion-score">0</p>
+                <span class="stat-label">Conversion Score</span>
+                <span class="stat-sub text-pink">+0 this scan</span>
+            </div>
+
+            <div class="score-card">
+                <div class="card-icon-box icon-teal"><i class="fa-solid fa-shield-halved"></i></div>
+                <p class="stat-value" id="trust-score">0</p>
+                <span class="stat-label">Trust Score</span>
+                <span class="stat-sub text-teal">+0 this scan</span>
+            </div>
+
+            <div class="score-card">
+                <div class="card-icon-box icon-amber"><i class="fa-solid fa-mobile-screen"></i></div>
+                <p class="stat-value" id="mobile-score">0</p>
+                <span class="stat-label">Mobile Score</span>
+                <span class="stat-sub text-amber">+0 this scan</span>
+            </div>
+
+        </div>
+
+        <!-- CHART -->
+        <div class="chart-section">
+            <h3>UX Score <span class="text-gradient-blue">Progress</span></h3>
+            <canvas id="uxChart"></canvas>
+        </div>
+
+        <!-- HISTORY -->
+        <div class="analysis-card">
+            <h3>Recent <span class="text-gradient">UX Reports</span></h3>
+
+            <div class="reports-box">
+                <ul id="report-history"></ul>
+            </div>
+        </div>
+
+        <!-- ANALYSIS -->
+        <div class="analysis-grid">
+
+            <div class="analysis-card">
+                <h3>Issues Found</h3>
+                <ul id="issues-list"></ul>
+            </div>
+
+            <div class="analysis-card">
+                <h3>Suggestions</h3>
+                <ul id="suggestions-list"></ul>
+            </div>
+
+        </div>
+
+        <!-- ACTION BUTTONS -->
+        <div class="result-actions">
+            <button id="download-report">Download Report</button>
+            <button id="reset-analysis">Reset</button>
+        </div>
+
+        <!-- LIVE EDITOR -->
+        <div class="analysis-card editor-section">
+
+            <h3>Live UX Editor</h3>
+
+            <div class="editor-container">
+
+                <div class="editor-panel">
+                    <h4>HTML</h4>
+                    <textarea id="html-editor" placeholder="Write HTML here..."></textarea>
+                </div>
+
+                <div class="editor-panel">
+                    <h4>CSS</h4>
+                    <textarea id="css-editor" placeholder="Write CSS here..."></textarea>
+                </div>
+
+            </div>
+
+            <button id="apply-editor">Run ▶</button>
+
+            <iframe id="preview-frame"></iframe>
+
+        </div>
+
+    </div>
+
+    <!-- ===== SHOP / PLAN REWARDS ===== -->
+    <section class="shop-section">
+        <h2>🛍️ Rewards <span class="text-gradient-gold">Shop</span></h2>
+        <p>Use your earned tokens to get discounts on plans and premium products.</p>
+
+        <div class="shop-summary">
+            <span>Available tokens: <strong id="shop-tokens" class="text-pink" style="font-size: 16px;">0</strong></span>
+            <span style="color: #94a3b8;">Each token = <strong class="text-green">₹0.10</strong> discount</span>
+        </div>
+
+        <div id="product-grid" class="product-grid"></div>
+    </section>
+
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script src="../js/dashboard.js"></script>
+    <script>
+        // Page transition effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add fade-in-up animation to sections on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in-up');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all sections
+            document.querySelectorAll('section').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

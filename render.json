@@ -1,0 +1,22 @@
+{
+  "buildCommand": "npm install",
+  "startCommand": "node server.js",
+  "envVars": [
+    {
+      "key": "MONGODB_URI",
+      "value": "mongodb+srv://username:password@cluster.mongodb.net/uxrayai"
+    },
+    {
+      "key": "JWT_SECRET",
+      "value": "your-secret-key-here"
+    },
+    {
+      "key": "GOOGLE_API_KEY",
+      "value": "your-google-api-key"
+    },
+    {
+      "key": "STRIPE_SECRET_KEY",
+      "value": "your-stripe-secret-key"
+    }
+  ]
+}

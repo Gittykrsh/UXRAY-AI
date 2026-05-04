@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Plans | UX-Ray AI</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- BACKGROUND GEOMETRIC SHAPES -->
+    <div class="geometric-shape"></div>
+    <div class="geometric-shape"></div>
+    <div class="geometric-shape"></div>
+
+    <header>
+        <nav class="container">
+            <div class="nav-left">
+                <a href="/" style="text-decoration: none; color: inherit;">
+                    <h2>UX-Ray AI</h2>
+                </a>
+            </div>
+            <div class="nav-right">
+                <a href="/#features">Features</a>
+                <a href="/#how-it-works">How it Works</a>
+                <a href="/#pricing">Pricing</a>
+                <a href="/plans" class="active">Plans</a>
+                <a href="/auth">Login</a>
+            </div>
+        </nav>
+    </header>
+
+    <!--PRICING HERO-->
+    <section id="pricing-hero" class="page-transition">
+        <div class="container">
+            <div class="section-header">
+                <h1>Choose Your <span class="text-gradient">Plan</span></h1>
+                <p>Unlock the full potential of AI-powered UX analysis</p>
+            </div>
+        </div>
+    </section>
+
+    <!--PRICING CARDS-->
+    <section id="pricing-cards" class="page-transition">
+        <div class="container">
+
+            <div class="pricing-grid">
+
+                <div class="price-card">
+                    <h3>Free</h3>
+                    <span class="plan-subtitle">Perfect for getting started</span>
+                    <h1>₹0<span>/mo</span></h1>
+                    <a href="/auth"><button class="btn-plan-dark">Get Started Free</button></a>
+                    <ul class="price-checklist">
+                        <li>5 UX audits per month</li>
+                        <li>Basic analysis reports</li>
+                        <li>Email support</li>
+                        <li>Community access</li>
+                    </ul>
+                </div>
+
+                <div class="price-card highlight">
+                    <span class="most-popular-badge"><i class="fa-solid fa-star"></i> Most Popular</span>
+                    <h3>Pro Monthly</h3>
+                    <span class="plan-subtitle">Most popular choice</span>
+                    <h1>₹499<span>/mo</span></h1>
+                    <button class="btn-plan-gradient plan-upgrade" data-plan="monthly">Upgrade Now</button>
+                    <button class="btn-plan-dark token-purchase" data-plan="monthly" style="margin-top: 0;">Use Tokens</button>
+                    <ul class="price-checklist">
+                        <li>2000 audits per month</li>
+                        <li>Advanced AI analysis</li>
+                        <li>Downloadable PDF reports</li>
+                        <li>Priority email support</li>
+                        <li>Custom branding options</li>
+                    </ul>
+                </div>
+
+                <div class="price-card">
+                    <h3>Pro Yearly</h3>
+                    <span class="plan-subtitle">Best value for power users</span>
+                    <h1>₹2999<span>/yr</span></h1>
+                    <button class="btn-plan-dark plan-upgrade" data-plan="yearly">Upgrade Now</button>
+                    <button class="btn-plan-dark token-purchase" data-plan="yearly" style="margin-top: 0;">Use Tokens</button>
+                    <ul class="price-checklist">
+                        <li>Unlimited audits</li>
+                        <li>Priority AI processing</li>
+                        <li>All Pro features</li>
+                        <li>Phone & chat support</li>
+                        <li>API access</li>
+                        <li>White-label reports</li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!--EXTERNAL PARTNERS-->
+    <section id="external-partners" class="page-transition">
+        <div class="container">
+            <div class="section-header">
+                <h2>Partner Integrations</h2>
+                <p>Get exclusive discounts through our trusted partners</p>
+            </div>
+
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <h4>Shopify Store</h4>
+                    <p>Complete e-commerce solutions with UX-Ray integration</p>
+                    <button class="partner-link" data-partner="shopify">Get 20% Off</button>
+                </div>
+
+                <div class="partner-card">
+                    <h4>WordPress Plugins</h4>
+                    <p>Premium UX plugins and themes</p>
+                    <button class="partner-link" data-partner="wordpress">Get 15% Off</button>
+                </div>
+
+                <div class="partner-card">
+                    <h4>Design Tools</h4>
+                    <p>Figma, Adobe XD, and Sketch bundles</p>
+                    <button class="partner-link" data-partner="design">Get 25% Off</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--TOKEN PURCHASE MODAL-->
+    <div id="token-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Purchase with Tokens</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="token-plan-info">
+                    <h4 id="token-plan-name">Pro Monthly</h4>
+                    <p id="token-plan-desc">2000 audits per month</p>
+                    <div class="token-calculation">
+                        <p>Plan Price: ₹<span id="token-plan-price">499</span></p>
+                        <p>Your Tokens: <span id="user-token-balance">0</span></p>
+                        <p>Tokens Needed: <span id="tokens-needed">4990</span></p>
+                        <p class="token-shortfall" id="token-shortfall" style="display: none;">
+                            You need <span id="shortfall-amount">0</span> more tokens
+                        </p>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button id="token-purchase-confirm" class="btn-primary">Purchase with Tokens</button>
+                    <button id="token-purchase-cancel" class="btn-secondary">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--COUPON MODAL-->
+    <div id="coupon-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Partner Discount Code</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="coupon-success">
+                    <h4>🎉 Your discount code is ready!</h4>
+                    <div class="coupon-code">
+                        <code id="generated-coupon">UXRAY2024</code>
+                        <button id="copy-coupon">Copy Code</button>
+                    </div>
+                    <p>Use this code at our partner website for exclusive discounts.</p>
+                    <div class="coupon-actions">
+                        <a id="partner-link" href="#" target="_blank" class="btn-primary">Visit Partner Site</a>
+                        <button id="coupon-close" class="btn-secondary">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--FOOTER-->
+    <footer>
+        <div class="container">
+            <p>© 2026 UX-Ray AI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="../js/plans.js"></script>
+    <script>
+        // Page transition effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add fade-in-up animation to sections on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in-up');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all sections
+            document.querySelectorAll('section').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
