@@ -787,6 +787,16 @@ document.addEventListener("DOMContentLoaded", function () {
                 await updateUserProfile();
                 currentAnalysis = data;
 
+                // Save to history
+                const reports = JSON.parse(localStorage.getItem("uxReports")) || [];
+                reports.push({ url: url, score: data.scores.ux, date: new Date().toISOString() });
+                localStorage.setItem("uxReports", JSON.stringify(reports));
+                renderReportHistory();
+
+                const scoreHistory = JSON.parse(localStorage.getItem("uxScoreHistory")) || [];
+                scoreHistory.push(data.scores.ux);
+                localStorage.setItem("uxScoreHistory", JSON.stringify(scoreHistory));
+
                 showToast("Analysis Complete! You earned " + (data.tokensEarned || 0) + " tokens!", "success");
 
             } catch (error) {
