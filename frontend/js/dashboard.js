@@ -630,10 +630,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const scoreHistory = JSON.parse(localStorage.getItem("uxScoreHistory")) || [];
         
-        // Add a baseline 0 so the line draws even on the first attempt
-        let displayData = [...scoreHistory];
-        let displayLabels = scoreHistory.map((_, i) => `Attempt ${i + 1}`);
-        if (displayData.length === 1) {
+        const displayData = scoreHistory.length > 0 ? [...scoreHistory] : [0];
+        const displayLabels = scoreHistory.length > 0
+            ? scoreHistory.map((_, i) => `Attempt ${i + 1}`)
+            : ["No data yet"];
+
+        if (scoreHistory.length === 1) {
             displayData.unshift(0);
             displayLabels.unshift("Start");
         }
@@ -663,12 +665,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function updateChart(score) {
-        if (!uxChart) {
-            initChart();
-        } else {
-            uxChart.destroy();
-            initChart();
+        if (score != null) {
+            const scoreHistory = JSON.parse(localStorage.getItem("uxScoreHistory")) || [];
+            scoreHistory.push(score);
+            localStorage.setItem("uxScoreHistory", JSON.stringify(scoreHistory));
         }
+
+        if (uxChart) {
+            uxChart.destroy();
+        }
+        initChart();
     }
 
     initChart();
@@ -689,14 +695,18 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         reports.slice().reverse().forEach(report => {
-            const div = document.createElement("div");
-            div.style.padding = "10px";
-            div.style.marginBottom = "10px";
-            div.style.borderRadius = "8px";
-            div.style.background = "rgba(255,255,255,0.05)";
-            div.style.fontSize = "14px";
-            div.innerHTML = `<strong>${report.url}</strong><br>UX Score: <span style="color:#6366f1">${report.score}</span>`;
-            reportHistory.appendChild(div);
+            const listItem = document.createElement("li");
+            listItem.style.padding = "12px 14px";
+            listItem.style.marginBottom = "10px";
+            listItem.style.borderRadius = "12px";
+            listItem.style.background = "rgba(255,255,255,0.05)";
+            listItem.style.fontSize = "14px";
+            listItem.style.listStyleType = "none";
+
+            const date = new Date(report.date);
+            const formattedDate = isNaN(date.getTime()) ? "" : ` · ${date.toLocaleString()}`;
+            listItem.innerHTML = `<strong>${report.url}</strong><span style="color:#94a3b8;font-size:12px;">${formattedDate}</span><br>UX Score: <span style="color:#6366f1">${report.score}</span>`;
+            reportHistory.appendChild(listItem);
         });
     }
 
@@ -790,19 +800,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 if (resultsSection) resultsSection.style.display = "block";
 
-                updateChart(data.scores.ux);
                 await updateUserProfile();
                 currentAnalysis = data;
 
-                // Save to history
                 const reports = JSON.parse(localStorage.getItem("uxReports")) || [];
                 reports.push({ url: url, score: data.scores.ux, date: new Date().toISOString() });
                 localStorage.setItem("uxReports", JSON.stringify(reports));
                 renderReportHistory();
 
-                const scoreHistory = JSON.parse(localStorage.getItem("uxScoreHistory")) || [];
-                scoreHistory.push(data.scores.ux);
-                localStorage.setItem("uxScoreHistory", JSON.stringify(scoreHistory));
+                updateChart(data.scores.ux);
 
                 showToast("Analysis Complete! You earned " + (data.tokensEarned || 0) + " tokens!", "success");
 
