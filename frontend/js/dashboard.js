@@ -178,6 +178,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const isAuth = checkAuth();
 
+    async function loadAnalysisHistory() {
+        if (!isAuth) return;
+        try {
+            const response = await fetch(`${API_BASE}/analysis/history`, { headers: getHeaders() });
+            const data = await response.json();
+            if (response.ok && data.analyses) {
+                // Database returns newest first. Reverse for chronological chart.
+                const chronological = [...data.analyses].reverse();
+                
+                // Update text reports (newest first for the list)
+                const reports = data.analyses.map(a => ({ url: a.url, score: a.scores.ux, date: a.createdAt }));
+                localStorage.setItem("uxReports", JSON.stringify(reports));
+                
+                // Update chart scores (oldest to newest)
+                const chartScores = chronological.map(a => a.scores.ux);
+                localStorage.setItem("uxScoreHistory", JSON.stringify(chartScores));
+                
+                renderReportHistory();
+                if (typeof initChart === "function") {
+                    if (uxChart) uxChart.destroy();
+                    initChart();
+                }
+            }
+        } catch (error) {
+            console.error("Error loading history from database:", error);
+        }
+    }
+
+    if (isAuth) {
+        loadAnalysisHistory();
+    }
+
     /* ========================= */
     /*     POINT SYSTEM          */
     /* ========================= */
