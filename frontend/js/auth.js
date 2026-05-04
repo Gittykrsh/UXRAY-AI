@@ -9,7 +9,7 @@ const errorMessage = document.getElementById("error-message");
 let isLogin = true;
 
 // API Base URL
-const API_BASE = "http://localhost:5000/api";
+const API_BASE = "/api";
 
 // Show error message
 function showError(message) {

@@ -2,7 +2,7 @@
 /*     UX-RAY DASHBOARD       */
 /* ========================= */
 
-const API_BASE = "http://localhost:5000/api";
+const API_BASE = "/api";
 
 /* ========================= */
 /*     IN-PAGE TOAST         */
