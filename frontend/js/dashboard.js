@@ -629,13 +629,22 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         const scoreHistory = JSON.parse(localStorage.getItem("uxScoreHistory")) || [];
+        
+        // Add a baseline 0 so the line draws even on the first attempt
+        let displayData = [...scoreHistory];
+        let displayLabels = scoreHistory.map((_, i) => `Attempt ${i + 1}`);
+        if (displayData.length === 1) {
+            displayData.unshift(0);
+            displayLabels.unshift("Start");
+        }
+
         uxChart = new Chart(chartCanvas, {
             type: "line",
             data: {
-                labels: scoreHistory.map((_, i) => `Attempt ${i + 1}`),
+                labels: displayLabels,
                 datasets: [{
                     label: "UX Score",
-                    data: scoreHistory,
+                    data: displayData,
                     borderColor: "#6366f1",
                     backgroundColor: "rgba(99,102,241,0.15)",
                     fill: true,
@@ -656,11 +665,9 @@ document.addEventListener("DOMContentLoaded", function () {
     function updateChart(score) {
         if (!uxChart) {
             initChart();
-        }
-        if (uxChart) {
-            uxChart.data.labels.push(`Attempt ${uxChart.data.labels.length + 1}`);
-            uxChart.data.datasets[0].data.push(score);
-            uxChart.update();
+        } else {
+            uxChart.destroy();
+            initChart();
         }
     }
 
