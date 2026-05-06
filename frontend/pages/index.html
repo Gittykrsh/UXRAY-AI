@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <title>UX-Ray AI | Website UX Reviewer</title>
 </head>
@@ -20,7 +22,13 @@
         <nav class="container">
 
             <div class="nav-left">
-                <h2>UX-Ray AI</h2>
+                <a href="/" style="text-decoration: none; display: flex; align-items: center; gap: 12px;">
+                    <div class="card-icon-box icon-purple"
+                        style="width: 36px; height: 36px; font-size: 16px; margin-bottom: 0; border-radius: 10px;">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h2 style="color: white; margin: 0; font-size: 24px;">UX-Ray AI</h2>
+                </a>
             </div>
 
             <div class="nav-right">
@@ -41,21 +49,175 @@
         <!-- Background image will be added via CSS -->
         <div id="hero-background"></div>
 
-        <div class="container hero-wrapper">
+        <div class="container hero-wrapper"
+            style="display: flex; align-items: center; justify-content: space-between; gap: 40px; padding-top: 40px; flex-wrap: wrap;">
 
-            <div class="hero-content">
-                <h1 id="hero-title">AI Powered Website UX Audit</h1>
-                <p>
-                    Get instant UX feedback, conversion tips and design
-                    improvements in seconds using artificial intelligence.
+            <div class="hero-content" style="flex: 1; min-width: 350px; text-align: left;">
+                <div
+                    style="display: inline-flex; align-items: center; gap: 8px; background: rgba(139,92,246,0.1); padding: 6px 16px; border-radius: 20px; border: 1px solid rgba(139,92,246,0.2); margin-bottom: 24px;">
+                    <i class="fa-solid fa-wand-magic-sparkles" style="color: #a78bfa;"></i>
+                    <span style="color: #a78bfa; font-size: 14px; font-weight: 500;">Introducing AI-Powered UX
+                        Audits</span>
+                </div>
+                <h1 id="hero-title"
+                    style="font-size: 56px; line-height: 1.2; margin-bottom: 20px; text-align: left; display: block;">AI Powered Website<br><span
+                        style="background: linear-gradient(to right, #ffffff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">UX Audit</span></h1>
+                <p
+                    style="margin-left: 0; margin-right: 0; max-width: 540px; font-size: 18px; line-height: 1.6; margin-bottom: 32px; text-align: left;">
+                    Get instant UX feedback, conversion tips and design improvements in seconds using artificial
+                    intelligence.
                 </p>
 
-                <div class="hero-buttons">
-                    <a href="/auth"><button>Start Free Analysis</button></a>
-                    <button>View Demo</button>
+                <div class="hero-buttons" style="justify-content: flex-start; margin-bottom: 40px; margin-top: 0;">
+                    <a href="/auth"><button style="display: flex; align-items: center; gap: 8px;">Start Free Analysis <i
+                                class="fa-solid fa-arrow-right"></i></button></a>
+                    <button style="display: flex; align-items: center; gap: 8px;"><i
+                            class="fa-regular fa-circle-play"></i> View Demo</button>
+                </div>
+
+                <div
+                    style="display: flex; gap: 40px; align-items: center; margin-top: 20px; text-align: left; flex-wrap: wrap;">
+                    <div>
+                        <h2 style="font-size: 32px; color: #a78bfa; margin-bottom: 4px;">50K+</h2>
+                        <span style="color: #94a3b8; font-size: 14px;">Websites Audited</span>
+                    </div>
+                    <div>
+                        <h2 style="font-size: 32px; color: #a78bfa; margin-bottom: 4px;">99.9%</h2>
+                        <span style="color: #94a3b8; font-size: 14px;">Accuracy</span>
+                    </div>
+                    <div>
+                        <h2 style="font-size: 32px; color: #a78bfa; margin-bottom: 4px;">4.9/5</h2>
+                        <span style="color: #94a3b8; font-size: 14px;">Rating</span>
+                    </div>
                 </div>
             </div>
 
+            <div class="hero-dashboard"
+                style="flex: 1; min-width: 400px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 24px; padding: 24px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+                    <!-- Card 1 -->
+                    <div
+                        style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); text-align: left;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
+                            <div class="card-icon-box icon-blue"
+                                style="width: 36px; height: 36px; font-size: 14px; margin-bottom: 0; border-radius: 8px;">
+                                <i class="fa-solid fa-chart-bar"></i>
+                            </div>
+                            <span style="color: #4ade80; font-size: 12px; font-weight: 600;">+12.5%</span>
+                        </div>
+                        <h3 style="font-size: 24px; margin-bottom: 4px; color: white;">24,582</h3>
+                        <span style="color: #94a3b8; font-size: 13px;">Total Audits</span>
+                    </div>
+                    <!-- Card 2 -->
+                    <div
+                        style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); text-align: left;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
+                            <div class="card-icon-box icon-purple"
+                                style="width: 36px; height: 36px; font-size: 14px; margin-bottom: 0; border-radius: 8px;">
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <span style="color: #4ade80; font-size: 12px; font-weight: 600;">+23.1%</span>
+                        </div>
+                        <h3 style="font-size: 24px; margin-bottom: 4px; color: white;">92/100</h3>
+                        <span style="color: #94a3b8; font-size: 13px;">Avg UX Score</span>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+                    <!-- Card 3 -->
+                    <div
+                        style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); text-align: left;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
+                            <div class="card-icon-box icon-pink"
+                                style="width: 36px; height: 36px; font-size: 14px; margin-bottom: 0; border-radius: 8px;">
+                                <i class="fa-solid fa-bolt"></i>
+                            </div>
+                            <span style="color: #4ade80; font-size: 12px; font-weight: 600;">+5.2%</span>
+                        </div>
+                        <h3 style="font-size: 24px; margin-bottom: 4px; color: white;">1,234</h3>
+                        <span style="color: #94a3b8; font-size: 13px;">Active Scans</span>
+                    </div>
+                    <!-- Card 4 -->
+                    <div
+                        style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); text-align: left;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
+                            <div class="card-icon-box icon-teal"
+                                style="width: 36px; height: 36px; font-size: 14px; margin-bottom: 0; border-radius: 8px;">
+                                <i class="fa-solid fa-arrow-trend-up"></i>
+                            </div>
+                            <span style="color: #4ade80; font-size: 12px; font-weight: 600;">+8.3%</span>
+                        </div>
+                        <h3 style="font-size: 24px; margin-bottom: 4px; color: white;">34.2%</h3>
+                        <span style="color: #94a3b8; font-size: 13px;">Conversion Lift</span>
+                    </div>
+                </div>
+
+                <!-- Bottom wide card -->
+                <div
+                    style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); text-align: left;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                        <span style="color: #94a3b8; font-size: 14px;">Performance Overview</span>
+                        <span style="color: #4ade80; font-size: 12px; font-weight: 600;">Live</span>
+                    </div>
+
+                    <div style="margin-bottom: 16px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span style="color: #94a3b8; font-size: 12px;">AI Processing Speed</span>
+                            <span style="color: white; font-size: 12px; font-weight: 600;">85%</span>
+                        </div>
+                        <div
+                            style="width: 100%; height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; overflow: hidden;">
+                            <div
+                                style="width: 85%; height: 100%; background: linear-gradient(90deg, #8b5cf6, #3b82f6); border-radius: 3px;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 16px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span style="color: #94a3b8; font-size: 12px;">Server Uptime</span>
+                            <span style="color: white; font-size: 12px; font-weight: 600;">99%</span>
+                        </div>
+                        <div
+                            style="width: 100%; height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; overflow: hidden;">
+                            <div
+                                style="width: 99%; height: 100%; background: linear-gradient(90deg, #a78bfa, #c084fc); border-radius: 3px;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span style="color: #94a3b8; font-size: 12px;">User Satisfaction</span>
+                            <span style="color: white; font-size: 12px; font-weight: 600;">92%</span>
+                        </div>
+                        <div
+                            style="width: 100%; height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; overflow: hidden;">
+                            <div
+                                style="width: 92%; height: 100%; background: linear-gradient(90deg, #f472b6, #e879f9); border-radius: 3px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!--OUR MISSION-->
+    <section id="our-mission"
+        style="padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); background: rgba(0,0,0,0.2);">
+        <div class="container" style="text-align: center; max-width: 800px; margin: 0 auto;">
+            <p
+                style="font-size: 14px; font-weight: 600; letter-spacing: 2px; color: #a78bfa; margin-bottom: 16px; text-transform: uppercase;">
+                Elevating Digital Experiences</p>
+            <p style="font-size: 20px; font-weight: 400; color: #cbd5e1; line-height: 1.6; margin: 0;">
+                We empower modern creators and teams by providing intelligent, data-driven insights. Turn complex user behaviors into clear actionable steps, and craft experiences that truly resonate with your audience.
+            </p>
         </div>
     </section>
 
@@ -206,11 +368,11 @@
         </div>
     </footer>
 
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-<script src="../js/pricing.js?v=1.2"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="../js/pricing.js?v=1.2"></script>
     <script>
         // Page transition effects
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Add fade-in-up animation to sections on scroll
             const observerOptions = {
                 threshold: 0.1,
@@ -247,22 +409,39 @@
             // Typing effect for hero title
             const heroTitle = document.getElementById('hero-title');
             if (heroTitle) {
-                const text = heroTitle.textContent;
-                heroTitle.textContent = '';
-                heroTitle.classList.add('typing-active');
+                heroTitle.innerHTML = '<span id="type-part-1"></span><br><span id="type-part-2" style="background: linear-gradient(to right, #ffffff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></span>';
+                
+                const text1 = "AI Powered Website";
+                const text2 = "UX Audit";
+                const typePart1 = document.getElementById('type-part-1');
+                const typePart2 = document.getElementById('type-part-2');
+                
                 let i = 0;
-                function typeWriter() {
-                    if (i < text.length) {
-                        heroTitle.textContent += text.charAt(i);
+                let j = 0;
+                
+                function typeWriter1() {
+                    if (i < text1.length) {
+                        typePart1.textContent += text1.charAt(i);
                         i++;
-                        setTimeout(typeWriter, 60); // Speed of typing
+                        setTimeout(typeWriter1, 20); // Faster speed
                     } else {
-                        heroTitle.classList.remove('typing-active');
+                        setTimeout(typeWriter2, 50);
+                    }
+                }
+                
+                function typeWriter2() {
+                    if (j < text2.length) {
+                        typePart2.textContent += text2.charAt(j);
+                        j++;
+                        setTimeout(typeWriter2, 20); // Faster speed
+                    } else {
                         heroTitle.classList.add('typing-done');
                     }
                 }
-                setTimeout(typeWriter, 400); // Small initial delay
+                
+                setTimeout(typeWriter1, 400);
             }
         });
     </script>
+
 </html>
