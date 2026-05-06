@@ -1,7 +1,9 @@
 # <p align="center">✨ UX-Ray AI – The Future of Website Analysis ✨</p>
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/216395fd-a305-472d-bd62-15c6dfc25bef" alt="UX-Ray AI Banner" width="100%">
+  
+  <img width="1892" height="1022" alt="Screenshot 2026-05-06 225617" src="https://github.com/user-attachments/assets/30932ed5-5f45-4409-9a3c-73ab414b2404" />
+
 </p>
 
 <p align="center">
