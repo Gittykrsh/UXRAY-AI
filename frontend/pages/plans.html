@@ -25,7 +25,12 @@
                     <h2 style="margin: 0; font-size: 24px;">UX-Ray AI</h2>
                 </a>
             </div>
-            <div class="nav-right">
+
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+
+            <div class="nav-right" id="nav-menu">
                 <a href="/#features">Features</a>
                 <a href="/#how-it-works">How it Works</a>
                 <a href="/#pricing">Pricing</a>
@@ -213,6 +218,18 @@
             document.querySelectorAll('section').forEach(section => {
                 observer.observe(section);
             });
+
+            // Mobile menu toggle
+            const mobileMenu = document.getElementById('mobile-menu');
+            const navMenu = document.getElementById('nav-menu');
+            
+            if (mobileMenu && navMenu) {
+                mobileMenu.addEventListener('click', function() {
+                    navMenu.classList.toggle('nav-active');
+                    mobileMenu.querySelector('i').classList.toggle('fa-bars');
+                    mobileMenu.querySelector('i').classList.toggle('fa-xmark');
+                });
+            }
         });
     </script>
 </body>

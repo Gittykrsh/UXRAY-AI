@@ -698,7 +698,7 @@ footer {
     color: #64748b;
 }
 
-/* RESPONSIVE */
+/* MOBILE FRIENDLY RESPONSIVE STYLES */
 @media (max-width: 768px) {
     .hero-content h1 {
         font-size: 36px;
@@ -2261,4 +2261,213 @@ nav {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     display: inline-block;
+}
+
+/* ============================================================
+   MOBILE FRIENDLY & RESPONSIVE DESIGN (GLOBAL OVERRIDES)
+   ============================================================ */
+
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+@media (max-width: 1024px) {
+    .container {
+        width: 90%;
+    }
+    
+    .hero-wrapper {
+        gap: 30px;
+    }
+    
+    .hero-content h1 {
+        font-size: 48px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Navbar */
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-right, .nav-actions {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: rgba(7, 7, 26, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1000;
+        border-left: 1px solid rgba(139, 92, 246, 0.3);
+    }
+
+    .nav-right.nav-active, .nav-actions.nav-active {
+        right: 0;
+    }
+
+    .nav-right a, .nav-actions a {
+        margin: 0 !important;
+        font-size: 18px;
+    }
+
+    .nav-right button, .upgrade-btn, #logout-btn {
+        width: 80%;
+        justify-content: center;
+    }
+
+    /* Hero Section */
+    #hero {
+        padding-top: 100px;
+    }
+
+    .hero-wrapper {
+        flex-direction: column !important;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .hero-content {
+        min-width: 100% !important;
+        text-align: center !important;
+        flex: none !important;
+    }
+
+    .hero-content h1 {
+        font-size: 38px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+        margin: 0 auto 24px !important;
+        max-width: 100% !important;
+    }
+
+    .hero-buttons {
+        justify-content: center !important;
+        width: 100%;
+        margin-left: 0 !important;
+    }
+
+    .hero-dashboard {
+        min-width: 100% !important;
+        margin-top: 20px;
+        flex: none !important;
+    }
+
+    /* Stats Row */
+    .hero-content > div:last-child {
+        justify-content: center !important;
+        gap: 20px !important;
+    }
+
+    /* Grids */
+    .features-grid, .steps-grid, .pricing-grid, .score-grid, .analysis-grid, .product-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
+
+    .section-header h2 {
+        font-size: 32px;
+    }
+
+    /* Dashboard Specifics */
+    .dashboard-nav-inner {
+        width: 95%;
+    }
+
+    .dashboard-main {
+        margin-top: 80px;
+        padding: 0 15px;
+    }
+
+    .analyze-card {
+        padding: 24px;
+        transform: scale(1) !important;
+        max-width: 100%;
+    }
+
+    .analyze-card h2 {
+        font-size: 24px;
+    }
+
+    .results-section {
+        margin-top: 20px;
+    }
+
+    .score-card {
+        padding: 20px 15px;
+    }
+
+    .chart-section {
+        padding: 20px;
+    }
+
+    .editor-container {
+        grid-template-columns: 1fr !important;
+    }
+
+    .editor-panel textarea {
+        height: 200px;
+    }
+
+    /* Auth Page */
+    body:has(input[type="password"]) .auth-card {
+        padding: 30px 20px;
+        width: 95% !important;
+        max-width: 100% !important;
+    }
+
+    body:has(input[type="password"]) footer {
+        position: static !important;
+        padding: 20px !important;
+        background: transparent !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 32px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .hero-buttons button {
+        width: 100%;
+    }
+
+    .price-card h1 {
+        font-size: 42px;
+    }
+
+    .modal-content {
+        padding: 20px;
+    }
+
+    .result-actions {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .result-actions button {
+        width: 100%;
+    }
+    
+    footer .container > div {
+        flex-direction: column;
+        gap: 15px;
+    }
 }
