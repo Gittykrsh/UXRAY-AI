@@ -1,262 +1,87 @@
-# UX-Ray AI – AI Powered Website UX Analyzer
+# UX-Ray AI 🚀
+### AI-Powered Website UX & Performance Analyzer
 
-A comprehensive SaaS application that analyzes website user experience using Google Cloud APIs, with gamification, token rewards, and e-commerce integration.
-
-## Features
-
-✅ **UX Analysis Engine** - Real-time website analysis with custom scoring
-✅ **User Authentication** - Secure signup/login with JWT tokens
-✅ **Gamification System** - Users earn tokens and level up with each analysis
-✅ **Analysis History** - Track previous analyses and scores
-✅ **Leaderboard** - Competitive token rankings
-✅ **E-Commerce Integration** - Purchase products using tokens as discounts
-✅ **Payment Integration** - Stripe payment processing
-✅ **Responsive Dashboard** - Modern UI with real-time updates
-
-## Tech Stack
-
-**Frontend:**
-- HTML5, CSS3, JavaScript
-- Chart.js for analytics visualization
-
-**Backend:**
-- Node.js & Express.js
-- MongoDB for data persistence
-- JWT for authentication
-- Stripe for payments
-
-**APIs:**
-- Google PageSpeed Insights
-- OpenAI (for enhanced suggestions)
-
-## Local Setup
-
-### 1. Prerequisites
-- Node.js (v14+)
-- MongoDB (local or Atlas)
-- npm or yarn
-
-### 2. Installation
-
-```bash
-# Install dependencies
-npm install
-
-# Create .env file with your keys
-cp .env.example .env
-
-# Edit .env and add:
-MONGODB_URI=mongodb://localhost:27017/uxrayai
-JWT_SECRET=your-secret-key
-GOOGLE_API_KEY=your-google-api-key
-STRIPE_SECRET_KEY=sk_test_xxx
-STRIPE_PUBLIC_KEY=pk_test_xxx
-```
-
-### 3. Run Locally
-
-```bash
-# Development mode (with auto-reload)
-npm run dev
-
-# Production mode
-npm start
-
-# Server runs on http://localhost:5000
-```
-
-## API Endpoints
-
-### Authentication
-- `POST /api/auth/signup` - Create account
-- `POST /api/auth/login` - Login
-- `POST /api/auth/logout` - Logout
-- `GET /api/auth/profile` - Get user profile
-
-### Analysis
-- `POST /api/analysis/analyze` - Analyze website
-- `GET /api/analysis/history` - Get analysis history
-- `GET /api/analysis/detail/:analysisId` - Get specific analysis
-
-### Tokens & Rewards
-- `GET /api/tokens/balance` - Get user tokens
-- `POST /api/tokens/redeem` - Redeem tokens
-- `GET /api/tokens/leaderboard` - Get top users
-- `POST /api/tokens/bonus` - Add bonus tokens
-
-### E-Commerce
-- `GET /api/orders/products` - Get product list
-- `POST /api/orders/create` - Create order
-- `POST /api/orders/payment` - Process payment
-- `GET /api/orders/my-orders` - Get user orders
-- `DELETE /api/orders/cancel/:orderId` - Cancel order
-
-## Database Schema
-
-### User
-```javascript
-{
-  name: String,
-  email: String (unique),
-  password: String (hashed),
-  tokens: Number,
-  level: Number,
-  totalAnalyses: Number,
-  analysisHistory: [ObjectId],
-  createdAt: Date
-}
-```
-
-### Analysis
-```javascript
-{
-  userId: ObjectId,
-  url: String,
-  scores: {
-    ux, conversion, trust, mobile,
-    performance, accessibility, bestPractices, seo
-  },
-  issues: [String],
-  suggestions: [String],
-  pointsEarned: Number,
-  createdAt: Date
-}
-```
-
-### Order
-```javascript
-{
-  userId: ObjectId,
-  items: [{name, price, quantity}],
-  totalPrice: Number,
-  tokensUsed: Number,
-  discountAmount: Number,
-  finalPrice: Number,
-  paymentStatus: String,
-  status: String,
-  createdAt: Date
-}
-```
-
-## Deployment Guide
-
-### Option 1: Deploy Backend on Render
-
-1. Create Render account (render.com)
-2. New → Web Service → Connect GitHub repo
-3. Configure environment variables
-4. Deploy
-
-### Option 2: Deploy Backend on Heroku
-
-```bash
-heroku login
-heroku create uxrayai-backend
-heroku config:set MONGODB_URI=mongodb+srv://...
-git push heroku main
-```
-
-### Option 3: Deploy Frontend on Vercel
-
-1. Create Vercel account (vercel.com)
-2. Import project from GitHub
-3. Configure API endpoint to point to backend
-4. Deploy
-
-### MongoDB Atlas Setup
-
-1. Create account at mongodb.com/cloud/atlas
-2. Create cluster
-3. Add user with credentials
-4. Get connection string
-5. Add to `.env` and deployment config
-
-## Environment Variables
-
-```env
-# Database
-MONGODB_URI=mongodb+srv://user:pass@cluster.mongodb.net/uxrayai
-
-# JWT
-JWT_SECRET=your-super-secret-jwt-key
-
-# Google APIs
-GOOGLE_API_KEY=your-google-pagespeed-api-key
-
-# Stripe
-STRIPE_SECRET_KEY=sk_test_xxxxx
-STRIPE_PUBLIC_KEY=pk_test_xxxxx
-
-# Server
-PORT=5000
-NODE_ENV=production
-```
-
-## Testing
-
-### Test API Locally
-
-```bash
-# Test signup
-curl -X POST http://localhost:5000/api/auth/signup \
-  -H "Content-Type: application/json" \
-  -d '{"name":"John","email":"john@example.com","password":"pass123"}'
-
-# Test analysis
-curl -X POST http://localhost:5000/api/analysis/analyze \
-  -H "Authorization: Bearer <token>" \
-  -H "Content-Type: application/json" \
-  -d '{"url":"https://example.com"}'
-```
-
-## Gamification Rules
-
-- **Base Tokens**: 10 tokens per analysis
-- **Bonus**: Additional tokens based on UX score (score/10)
-- **Levels**: Level = (tokens / 100) + 1
-- **Token Value**: Each token = $0.10 discount
-- **Leaderboard**: Top 10 users by token count
-
-## Features Implementation Status
-
-✅ Backend Setup
-✅ Authentication System
-✅ UX Analysis Engine
-✅ Token System
-✅ E-Commerce
-✅ Payment Processing
-✅ Database Models
-✅ API Routes
-✅ Frontend Integration
-✅ Deployment Config
-
-## Future Enhancements
-
-- [ ] Advanced AI suggestions using OpenAI
-- [ ] Real-time notifications
-- [ ] User analytics dashboard
-- [ ] Custom branding for white-label
-- [ ] Bulk URL analysis
-- [ ] API rate limiting
-- [ ] Email verification
-- [ ] Two-factor authentication
-- [ ] Export reports as PDF
-- [ ] Team collaboration features
-
-## Support & Documentation
-
-- API Documentation: `/api/docs`
-- User Guide: See `USER_GUIDE.md`
-- Developer Guide: See `DEVELOPER_GUIDE.md`
-
-## License
-
-Proprietary - All rights reserved
-
-## Contact
-
-For inquiries: support@uxray-ai.com
+**UX-Ray AI** is a professional SaaS platform designed to help web developers and business owners audit their website's User Experience (UX) and performance. Using Google Cloud APIs and AI-driven insights, it provides actionable scores, gamified rewards, and a comprehensive dashboard.
 
 ---
 
-**Status**: Fully Functional & Ready for Production Deployment
+## ✨ Key Features
+
+*   **🔍 Real-Time UX Analysis:** Enter any URL to get an instant breakdown of Performance, Accessibility, SEO, and Best Practices.
+*   **🤖 AI Insights:** Integration with OpenAI to provide human-like recommendations for improving conversion rates.
+*   **🔐 Secure Authentication:** Multi-method login system featuring Email/Password and **Google One-Tap Sign-In**.
+*   **🎮 Gamification & Rewards:** Earn "UX-Tokens" for every analysis performed. Level up your profile and track your progress.
+*   **📊 Dynamic Dashboard:** Visualized analytics using Chart.js to track score history and token earnings.
+*   **🏆 Leaderboard:** Compete with other users to see who has the most analyzed websites and tokens.
+*   **💳 E-Commerce & Stripe:** A built-in shop to purchase premium UX reports and services using Stripe payment integration.
+
+---
+
+## 🛠️ Tech Stack
+
+**Frontend:**
+- **Core:** HTML5, CSS3 (Modern Glassmorphism Design), Vanilla JavaScript
+- **Visuals:** Chart.js, FontAwesome, Google Fonts (Poppins)
+- **Auth:** Google Identity Services (GSI) SDK
+
+**Backend:**
+- **Runtime:** Node.js & Express.js
+- **Database:** MongoDB (with Mongoose ODM)
+- **Security:** JWT (JSON Web Tokens), Bcrypt.js, CORS
+- **APIs:** Google PageSpeed Insights, OpenAI API, Stripe API
+
+---
+
+## 🚀 Getting Started
+
+### 1. Prerequisites
+- [Node.js](https://nodejs.org/) (v16 or higher)
+- [MongoDB](https://www.mongodb.com/) (Local or Atlas)
+- Google Cloud Console Project (for API keys)
+
+### 2. Installation
+```bash
+# Clone the repository
+git clone https://github.com/Gittykrsh/UXRAY-AI.git
+
+# Navigate to project
+cd UXRAY-AI
+
+# Install dependencies
+npm install
+```
+
+### 3. Environment Setup
+Create a `.env` file in the root directory and add:
+```env
+MONGODB_URI=mongodb://localhost:27017/uxrayai
+JWT_SECRET=your_super_secret_key
+GOOGLE_API_KEY=your_google_pagespeed_api_key
+GOOGLE_CLIENT_ID=your_google_oauth_client_id
+OPENAI_API_KEY=your_openai_api_key
+STRIPE_SECRET_KEY=your_stripe_secret_key
+PORT=5000
+```
+
+### 4. Running the App
+```bash
+# Run backend and frontend (Express serves the static files)
+npm start
+```
+The app will be available at `http://localhost:5000`
+
+---
+
+## 📸 Screenshots
+
+| Dashboard | Auth Page | Analysis Results |
+| :--- | :--- | :--- |
+| ![Dashboard](https://via.placeholder.com/300x200?text=Dashboard+View) | ![Auth](https://via.placeholder.com/300x200?text=Google+Auth+UI) | ![Results](https://via.placeholder.com/300x200?text=UX+Scores+View) |
+
+---
+
+## 🤝 Contributing
+Contributions are welcome! Feel free to open an issue or submit a pull request.
+
+## 📄 License
+This project is licensed under the MIT License.
