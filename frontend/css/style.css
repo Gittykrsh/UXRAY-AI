@@ -720,7 +720,7 @@ body:has(input[type="password"]) {
 }
 
 /* FORM CONTAINER AUTO TARGET */
-body:has(input[type="password"]) > * {
+body:has(input[type="password"]) > *:not(footer) {
     width: 100%;
     max-width: 440px; /* Increased from 360px */
 }
