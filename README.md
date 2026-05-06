@@ -81,15 +81,25 @@ Access the app at `http://localhost:5000`
 
 ## 🌍 Deployment
 
-This project is optimized for **Vercel**. 
+### **Option 1: Railway (Recommended 🚀)**
+Railway is the best choice for this project as it handles both frontend and backend in one go without cold starts or timeouts.
+1.  Connect your GitHub repo to **[Railway.app](https://railway.app/)**.
+2.  Add your `.env` variables in the **Variables** tab.
+3.  Railway will automatically detect the root `package.json` and start the server.
 
-1.  Connect your GitHub repo to Vercel.
-2.  Add your `.env` variables to the Vercel dashboard.
-3.  Deploy! Vercel handles the API routing and static hosting automatically.
+### **Option 2: Vercel**
+Optimized for serverless deployment.
+1.  Connect your GitHub repo to **Vercel**.
+2.  Add your `.env` variables in the dashboard.
+3.  Vercel will use the `vercel.json` configuration for routing.
 
 ---
 
-## 🤝 Contributing
+## 📸 Screenshots
+<p align="center">
+  <img width="1892" height="1022" alt="UX-Ray AI Screenshot" src="https://github.com/user-attachments/assets/30932ed5-5f45-4409-9a3c-73ab414b2404" />
+</p>
+
 
 Contributions make the open-source community an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
