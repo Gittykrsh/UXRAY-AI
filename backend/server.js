@@ -65,9 +65,11 @@ app.get("/dashboard", (req, res) => {
     res.sendFile(filePath);
 });
 app.get("/plans", (req, res) => {
-    const filePath = path.resolve(pagesPath, "plans.html");
-    console.log('Serving plans file:', filePath);
-    res.sendFile(filePath);
+    res.sendFile(path.resolve(pagesPath, "plans.html"));
+});
+
+app.get("/policies", (req, res) => {
+    res.sendFile(path.resolve(pagesPath, "policies.html"));
 });
 
 // Optional aliases for old page-style links
