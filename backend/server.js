@@ -93,8 +93,14 @@ app.use((err, req, res, next) => {
     res.status(500).json({ error: "Internal server error", message: err.message });
 });
 
-app.listen(PORT, () => {
-    console.log(`🚀 Server running on http://localhost:${PORT}`);
-    console.log(`📊 Analysis API: POST http://localhost:${PORT}/api/analysis/analyze`);
-    console.log(`🔐 Auth API: POST http://localhost:${PORT}/api/auth/signup`);
-});
+// Export the app for Vercel
+export default app;
+
+// Only listen if not in a serverless environment
+if (process.env.NODE_ENV !== "production" || !process.env.VERCEL) {
+    app.listen(PORT, () => {
+        console.log(`🚀 Server running on http://localhost:${PORT}`);
+        console.log(`📊 Analysis API: POST http://localhost:${PORT}/api/analysis/analyze`);
+        console.log(`🔐 Auth API: POST http://localhost:${PORT}/api/auth/signup`);
+    });
+}

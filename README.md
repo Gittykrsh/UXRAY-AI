@@ -72,11 +72,10 @@ The app will be available at `http://localhost:5000`
 
 ---
 
-## 📸 Screenshots
+## 📸 Screenshot
 
-| Dashboard | Auth Page | Analysis Results |
-| :--- | :--- | :--- |
-| ![Dashboard](https://via.placeholder.com/300x200?text=Dashboard+View) | ![Auth](https://via.placeholder.com/300x200?text=Google+Auth+UI) | ![Results](https://via.placeholder.com/300x200?text=UX+Scores+View) |
+<img width="1892" height="1022" alt="image" src="https://github.com/user-attachments/assets/216395fd-a305-472d-bd62-15c6dfc25bef" />
+
 
 ---
 
