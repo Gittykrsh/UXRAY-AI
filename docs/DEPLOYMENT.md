@@ -13,7 +13,7 @@ Create `.env` file with:
 ```
 MONGODB_URI=mongodb://localhost:27017/uxrayai
 JWT_SECRET=your-secret-key-change-in-prod
-GOOGLE_API_KEY=AIzaSyBBhj1lLDXiWSF4w1or_EEErFUEjZ_dNXA
+GOOGLE_API_KEY=AIxxxxxx_xxxxxxZ_dNXA
 OPENAI_API_KEY=sk-proj-xxx
 STRIPE_SECRET_KEY=sk_test_xxx
 STRIPE_PUBLIC_KEY=pk_test_xxx

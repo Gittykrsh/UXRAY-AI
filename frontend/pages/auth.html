@@ -7,6 +7,8 @@
 
     <link rel="stylesheet" href="../css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- GOOGLE IDENTITY SERVICES -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 
 <body>
@@ -47,6 +49,17 @@
                     <div id="error-message" class="error-message"></div>
 
                     <button type="submit" class="auth-btn">Login</button>
+
+                    <div class="auth-separator">OR</div>
+
+                    <div id="google-btn-wrapper" style="position: relative; z-index: 100;">
+                        <button type="button" class="google-btn" id="google-login">
+                            <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google">
+                            <span>Continue with Google</span>
+                        </button>
+                        <!-- Official Google button overlay (invisible but clickable) -->
+                        <div id="google-official-btn" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; overflow: hidden; z-index: 10;"></div>
+                    </div>
 
                 </form>
 

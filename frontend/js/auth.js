@@ -138,3 +138,85 @@ form.addEventListener("submit", async function(e){
         button.innerText = isLogin ? "Login" : "Sign Up";
     }
 });
+
+// Google Sign-in Implementation
+document.addEventListener("DOMContentLoaded", function () {
+    console.log("Auth page loaded, initializing Google GSI...");
+    
+    const CLIENT_ID = "1006625829906-k8996r9mmhkm1mkjttaj28l7tu51fl5r.apps.googleusercontent.com";
+
+    // Small delay to ensure everything is rendered
+    setTimeout(() => {
+        if (typeof google !== 'undefined') {
+            console.log("Google SDK detected.");
+            google.accounts.id.initialize({
+                client_id: CLIENT_ID,
+                callback: handleGoogleResponse,
+                auto_select: false,
+                cancel_on_tap_outside: true
+            });
+
+            const btnContainer = document.getElementById("google-official-btn");
+            const referenceBtn = document.getElementById("google-login");
+
+            if (btnContainer && referenceBtn) {
+                console.log("Rendering official button overlay...");
+                google.accounts.id.renderButton(
+                    btnContainer,
+                    { 
+                        theme: "outline", 
+                        size: "large", 
+                        width: referenceBtn.offsetWidth || 400,
+                        text: "continue_with"
+                    }
+                );
+
+                // Fallback: If for some reason the overlay isn't clickable, 
+                // clicking the custom button will try to trigger the prompt
+                referenceBtn.onclick = () => {
+                    console.log("Custom button clicked, triggering prompt fallback...");
+                    google.accounts.id.prompt();
+                };
+            }
+        } else {
+            console.warn("Google SDK not detected.");
+        }
+    }, 1500);
+});
+
+async function handleGoogleResponse(response) {
+    console.log("Google response received, verifying...");
+    clearError();
+    const idToken = response.credential;
+
+    try {
+        const res = await fetch(`${API_BASE}/auth/google`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ token: idToken })
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+            showError(data.error || "Google Login failed");
+            return;
+        }
+
+        // Save session
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("user", JSON.stringify(data.user));
+
+        showError("✅ Google Login Successful! Redirecting...");
+        errorMessage.style.color = "#51cf66";
+        errorMessage.style.backgroundColor = "rgba(81, 207, 102, 0.1)";
+        
+        setTimeout(() => {
+            window.location.href = "dashboard.html";
+        }, 1500);
+
+    } catch (error) {
+        showError("Google Auth Network Error");
+        console.error("Google Auth Error:", error);
+    }
+}
