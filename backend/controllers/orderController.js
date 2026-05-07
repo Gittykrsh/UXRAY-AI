@@ -61,6 +61,11 @@ const partnerCoupons = {
         name: "Design Tools",
         discount: "25%",
         prefix: "UXDESIGN"
+    },
+    aesivo: {
+        name: "AESIVO",
+        discount: "10%",
+        prefix: "AESIVO10"
     }
 };
 
@@ -451,9 +456,14 @@ export const generatePartnerCoupon = async (req, res) => {
         }
 
         // Generate unique coupon code
-        const timestamp = Date.now().toString().slice(-4);
-        const random = Math.random().toString(36).substring(2, 5).toUpperCase();
-        const couponCode = `${partnerInfo.prefix}${timestamp}${random}`;
+        let couponCode;
+        if (partner === 'aesivo') {
+            couponCode = partnerInfo.prefix;
+        } else {
+            const timestamp = Date.now().toString().slice(-4);
+            const random = Math.random().toString(36).substring(2, 5).toUpperCase();
+            couponCode = `${partnerInfo.prefix}${timestamp}${random}`;
+        }
 
         res.json({
             couponCode,

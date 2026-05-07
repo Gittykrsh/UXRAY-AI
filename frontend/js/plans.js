@@ -33,6 +33,12 @@ const partnerDetails = {
         discount: "25%",
         link: "https://figma.com",
         couponPrefix: "UXDESIGN"
+    },
+    aesivo: {
+        name: "AESIVO",
+        discount: "10%",
+        link: "https://aesivo20-production.up.railway.app/",
+        couponPrefix: "AESIVO10"
     }
 };
 
